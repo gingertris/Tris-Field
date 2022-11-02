@@ -1,0 +1,9 @@
+{
+  "name": "tris-field",
+  "private":"true",
+  "workspaces":["packages/*"],
+  "packageManager": "yarn@3.2.4",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
