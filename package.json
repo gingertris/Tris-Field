@@ -1,0 +1,29 @@
+{
+  "name": "tris-field",
+  "workspaces": [
+    "packages/bot",
+    "packages/db"
+  ],
+  "version": "1.0.0",
+  "description": "Tris' Field (v2)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gingertris/Tris-Field.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gingertris/Tris-Field/issues"
+  },
+  "homepage": "https://github.com/gingertris/Tris-Field#readme",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0"
+  }
+}
