@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id      String   @id
+  name    String   @unique
+  region  Region
+  team    Team?    @relation(fields: [teamId], references: [id])
+  teamId  Int?
+  invites Invite[]
+}
+
+model Team {
+  id               Int      @id @default(autoincrement())
+  name             String   @unique
+  captainId        String
+  division         Division
+  region           Region
+  rating           Int      @default(1000)
+  gamesPlayed      Int      @default(0)
+  players          Player[]
+  invites          Invite[]
+  queue            Queue?
+  changesRemaining Int      @default(2)
+  team1Matches     Match[]  @relation(name: "team1")
+  team2Matches     Match[]  @relation(name: "team2")
+}
+
+model Queue {
+  id       Int      @id @default(autoincrement())
+  team     Team     @relation(fields: [teamId], references: [id])
+  region   Region
+  division Division
+  teamId   Int      @unique
+}
+
+model Invite {
+  team     Team    @relation(fields: [teamId], references: [id])
+  player   Player  @relation(fields: [playerId], references: [id])
+  answered Boolean @default(false)
+  teamId   Int
+  playerId String
+
+  @@id([teamId, playerId])
+}
+
+model Match {
+  id    Int  @id @default(autoincrement())
+  team1 Team @relation("team1", fields: [team1Id], references: [id])
+  team2 Team @relation("team2", fields: [team2Id], references: [id])
+
+  team1Id Int
+  team2Id Int
+
+  winnerId  Int?
+  powerHour Boolean
+  date      DateTime @default(now())
+
+  team1Difference Int @default(0)
+  team2Difference Int @default(0)
+}
+
+model Archive {
+  year  Int
+  month Int
+  teams Json
+
+  @@id([year, month])
+}
+
+enum Region {
+  EU
+  NA
+}
+
+enum Division {
+  OPEN
+  CLOSED
+}
