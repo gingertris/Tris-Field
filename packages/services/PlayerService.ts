@@ -1,5 +1,5 @@
 import prisma from "../db/PrismaClient";
-import {Prisma} from '@prisma/client'
+import { fetchTeam } from "./TeamService";
 
 export const fetchPlayer = async (id:string) => {
     return await prisma.player.findUnique({
@@ -14,12 +14,31 @@ export const fetchPlayer = async (id:string) => {
 }
 
 export const createPlayer = async (id: string, username: string, region: "EU" | "NA") => {
-    //let player = Prisma.PlayerCreateInput
-    const player = await prisma.player.create({
+    return await prisma.player.create({
         data: {
             id:id,
             name:username,
             region:region
         }
     })
+}
+
+export const setTeam = async (playerId: string, teamId: number | null) => {
+    return await prisma.player.update({
+        where:{
+            id:playerId
+        },
+        data:{
+            teamId:teamId
+        }
+    })
+}
+
+export const leaveTeam = async (playerId: string) => { //honestly just an alias function
+    return await setTeam(playerId, null);
+}
+
+export const isCaptain = async (playerId: string) => {
+    const player = await fetchPlayer(playerId);
+    return player?.team?.captainId == playerId;
 }
