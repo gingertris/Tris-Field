@@ -4,10 +4,10 @@ import Test from "./test"
 const Commands = [Test]
 
 export interface ICommand {
-    data: SlashCommandBuilder,
+    data: any, //slash command builder magic that i dont fully get
     config: {
         registered: boolean,
-        moderator: boolean
+        captain: boolean
     },
     execute(interaction: ChatInputCommandInteraction): Promise<void>
 }

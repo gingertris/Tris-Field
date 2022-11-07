@@ -12,7 +12,7 @@ const Test: ICommand = {
     },
     config:{
         registered:false,
-        moderator:false
+        captain:false
     }
 }
 

@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.6.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "node-schedule": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node-schedule": "^2.1.0"
   }
 }

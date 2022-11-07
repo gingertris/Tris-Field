@@ -19,6 +19,10 @@ export const createPlayer = async (id: string, username: string, region: "EU" | 
             id:id,
             name:username,
             region:region
+        },
+        include:{
+            team:true,
+            invites:true
         }
     })
 }
@@ -30,6 +34,10 @@ export const setTeam = async (playerId: string, teamId: number | null) => {
         },
         data:{
             teamId:teamId
+        },
+        include:{
+            team:true,
+            invites:true
         }
     })
 }
