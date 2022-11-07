@@ -36,11 +36,12 @@ model Team {
 }
 
 model Queue {
-  id       Int      @id @default(autoincrement())
   team     Team     @relation(fields: [teamId], references: [id])
   region   Region
   division Division
   teamId   Int      @unique
+
+  @@id([teamId, region, division])
 }
 
 model Invite {
