@@ -1,7 +1,11 @@
 import prisma from "../db/PrismaClient";
 
 export const fetchQueue = async () => {
-    return await prisma.queue.findMany();
+    return await prisma.queue.findMany({
+        include:{
+            team:true
+        }
+    });
 }
 
 export const fetchSpecificQueue = async (region: "EU" | "NA", division: "OPEN" | "CLOSED") => {
@@ -9,16 +13,25 @@ export const fetchSpecificQueue = async (region: "EU" | "NA", division: "OPEN" |
         where:{
             region:region,
             division: division
+        },
+        include:{
+            team:true
+            
         }
     })
 }
 
 export const isQueued = async (teamId: number) => {
-    await prisma.queue.findUnique({
+    const queued = await prisma.queue.findUnique({
         where:{
             teamId:teamId
         }
-    }) ? true : false
+    })
+    if(queued){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 export const joinQueue = async (teamId: number, region: "EU" | "NA", division: "OPEN" | "CLOSED") => {
@@ -39,11 +52,10 @@ export const leaveQueue = async (teamId: number) => {
     })
 }
 
-export const clearQueue = async (region: "EU" | "NA", division: "OPEN" | "CLOSED") => {
+export const clearQueue = async (region: "EU" | "NA") => {
     await prisma.queue.deleteMany({
         where:{
-            region: region,
-            division:division
+            region: region
         }
     })
 }

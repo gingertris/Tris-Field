@@ -6,6 +6,10 @@ export const createMatch = async (team1Id: number, team2Id: number, powerHour:bo
             team1Id:team1Id,
             team2Id:team2Id,
             powerHour:powerHour
+        },
+        include:{
+            team1:true,
+            team2:true
         }
     });
 }

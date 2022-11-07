@@ -39,6 +39,7 @@ model Queue {
   team     Team     @relation(fields: [teamId], references: [id])
   region   Region
   division Division
+  joined   DateTime @default(now())
   teamId   Int      @unique
 
   @@id([teamId, region, division])

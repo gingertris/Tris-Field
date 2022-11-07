@@ -13,6 +13,15 @@ export const fetchTeam = async (teamId: number) => {
     return team;
 }
 
+export const fetchTeams = async () => {
+    const teams = await prisma.team.findMany({
+        include:{
+            players:true
+        }
+    });
+    return teams;
+}
+
 export const fetchTeamByName = async (teamName: string) => {
     const team = await prisma.team.findUnique({
         where:{
@@ -33,6 +42,9 @@ export const createTeam = async (name:string, captainId:string, region: "EU"|"NA
             captainId:captainId,
             region:region,
             division:"OPEN"
+        },
+        include:{
+            players:true
         }
     })
 }
