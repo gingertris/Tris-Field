@@ -59,6 +59,7 @@ export const deleteTeam = async (teamId: number) => {
 
 export const updateTeam = async (teamId:number, data:{
     captainId?:string,
+    name?:string
     division?:"OPEN"|"CLOSED",
     region?:"EU"|"NA",
     rating?:number,
