@@ -49,6 +49,14 @@ export const createTeam = async (name:string, captainId:string, region: "EU"|"NA
     })
 }
 
+export const deleteTeam = async (teamId: number) => {
+    await prisma.team.delete({
+        where:{
+            id:teamId
+        }
+    })
+}
+
 export const updateTeam = async (teamId:number, data:{
     captainId?:string,
     division?:"OPEN"|"CLOSED",
