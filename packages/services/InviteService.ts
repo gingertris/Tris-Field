@@ -18,8 +18,12 @@ export const fetchInvite = async (playerId: string, teamId: number) => {
             }
         },
         include:{
-            team:true,
-            player:true
+            player:true,
+            team:{
+                select:{
+                    name:true
+                }
+            }
         }
     })
 }

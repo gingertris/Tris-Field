@@ -2,6 +2,7 @@ import {Client, GatewayIntentBits, Events, Collection, REST, Routes} from 'disco
 import * as dotenv from 'dotenv';
 import { fetchPlayer, isCaptain } from '../services/PlayerService';
 import Commands, { ICommand } from './commands/commands'
+import { handleJoinQueue, handleLeaveQueue } from './utils/queue';
 dotenv.config();
 
 const client = new Client({intents:[GatewayIntentBits.Guilds]})
@@ -15,33 +16,23 @@ for (const command of Commands) {
 client.once(Events.ClientReady, async () => {
     if(!client.user) return; 
 	console.log(`Logged in as ${client.user.tag}!`);
-
-	//deploy commands
-	try{
-
-		const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN ?? "token not found");
-		let commandsJSON = [];
-		// Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
-		for (let command of Commands) {
-			commandsJSON.push(command.data.toJSON());
-		}
-
-		console.log("Putting commands to endpoint")
-		if(process.env.BOT_CLIENT_ID && process.env.GUILD_ID){
-			await rest.put(Routes.applicationGuildCommands(process.env.BOT_CLIENT_ID, process.env.GUILD_ID), {
-				body:commandsJSON
-			});
-		}
-		
-		console.log("Commands deployed.")
-	} catch(e:any){
-		console.log(e.message)
-	}
-
 });
 
 //command handler
 client.on(Events.InteractionCreate, async interaction => {
+
+	//handle queue buttons
+	if (interaction.isButton()) {
+		try{
+			if (interaction.customId == 'joinqueue') return await handleJoinQueue(interaction);
+			if (interaction.customId == 'leavequeue') return await handleLeaveQueue(interaction);
+		} catch (err) {
+			console.error(err);
+			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+			return
+		}
+	}
+
 
 	if (!interaction.isChatInputCommand()) return;
 

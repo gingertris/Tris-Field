@@ -36,7 +36,7 @@ export const fetchTeamByName = async (teamName: string) => {
 }
 
 export const createTeam = async (name:string, captainId:string, region: "EU"|"NA") => {
-    prisma.team.create({
+    return await prisma.team.create({
         data:{
             name:name,
             captainId:captainId,

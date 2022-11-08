@@ -69,3 +69,5 @@ const Register: ICommand = {
         captain:false
     }
 }
+
+export default Register;

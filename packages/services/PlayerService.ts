@@ -8,7 +8,11 @@ export const fetchPlayer = async (id:string) => {
         },
         include:{
             team:true,
-            invites:true
+            invites:{
+                include:{
+                    team:true
+                }
+            }
         }
     })
 }
@@ -22,7 +26,11 @@ export const createPlayer = async (id: string, username: string, region: "EU" | 
         },
         include:{
             team:true,
-            invites:true
+            invites:{
+                include:{
+                    team:true
+                }
+            }
         }
     })
 }
