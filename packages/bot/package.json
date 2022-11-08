@@ -11,9 +11,11 @@
   "dependencies": {
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
+    "elo-rank": "^1.0.4",
     "node-schedule": "^2.1.0"
   },
   "devDependencies": {
+    "@types/elo-rank": "^1.0.1",
     "@types/node-schedule": "^2.1.0",
     "nodemon": "^2.0.20"
   }
