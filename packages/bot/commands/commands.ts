@@ -1,4 +1,5 @@
 import { ChatInputCommandInteraction } from "discord.js"
+import Delete from "./captain/delete"
 import Invite from "./captain/invite"
 import Test from "./test"
 import Clear from "./user/clear"
@@ -9,7 +10,7 @@ import Player from "./user/player"
 import Register from "./user/register"
 import Team from "./user/team"
 
-const Commands = [Test, Create, Register, Join, Invite, Team, Player, Pings, Clear]
+const Commands = [Test, Create, Register, Join, Invite, Team, Player, Pings, Clear, Delete]
 
 export interface ICommand {
     data: any, //slash command builder magic that i dont fully get

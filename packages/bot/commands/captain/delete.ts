@@ -59,3 +59,5 @@ const Delete: ICommand =  {
         registered:true
     }
 }
+
+export default Delete;
