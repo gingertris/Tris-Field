@@ -1,5 +1,5 @@
 {
-  "name": "bot",
+  "name": "@tris-field/bot",
   "version": "1.0.0",
   "description": "Discord Bot Client",
   "main": "app.js",
@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tris-field/services": "file:../services",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "elo-rank": "^1.0.4",

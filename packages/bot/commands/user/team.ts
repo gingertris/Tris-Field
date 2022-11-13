@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
-import { fetchPlayer } from "../../../services/PlayerService";
-import { fetchTeam, fetchTeamByName } from "../../../services/TeamService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
+import { fetchTeam, fetchTeamByName } from "@tris-field/services/TeamService";
 import { ICommand } from "../commands";
 
 

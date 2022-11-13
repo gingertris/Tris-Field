@@ -1,4 +1,4 @@
-import prisma from "../db/PrismaClient";
+import prisma from "@tris-field/db/PrismaClient";
 
 export const createMatch = async (team1Id: number, team2Id: number, powerHour:boolean) => {
     return await prisma.match.create({

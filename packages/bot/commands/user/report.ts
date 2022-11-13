@@ -1,6 +1,6 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { fetchMatch } from "../../../services/MatchService";
-import { fetchPlayer } from "../../../services/PlayerService";
+import { fetchMatch } from "@tris-field/services/MatchService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
 import { messageCaptains, reportMatch } from "../../utils/report";
 import { ICommand } from "../commands";
 

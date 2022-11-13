@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
-import { fetchPlayer } from "../../../services/PlayerService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
 import { ICommand } from "../commands";
 
 const Player: ICommand =  {

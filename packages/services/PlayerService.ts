@@ -1,5 +1,4 @@
-import prisma from "../db/PrismaClient";
-import { fetchTeam } from "./TeamService";
+import prisma from "@tris-field/db/PrismaClient";
 
 export const fetchPlayer = async (id:string) => {
     return await prisma.player.findUnique({

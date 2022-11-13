@@ -1,5 +1,5 @@
 import { ChatInputCommandInteraction, GuildMember, SlashCommandBuilder } from "discord.js";
-import { createPlayer, fetchPlayer } from "../../../services/PlayerService";
+import { createPlayer, fetchPlayer } from "@tris-field/services/PlayerService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
 

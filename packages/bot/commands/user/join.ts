@@ -1,7 +1,7 @@
 import { SlashCommandBuilder, ActionRowBuilder, SelectMenuBuilder, EmbedBuilder , ComponentType, ChatInputCommandInteraction, Guild, GuildMember, SelectMenuOptionBuilder } from "discord.js";
-import { fetchInvite, updateInvite } from "../../../services/InviteService";
-import { fetchPlayer, setTeam } from "../../../services/PlayerService";
-import { fetchTeam, updateTeam } from "../../../services/TeamService";
+import { fetchInvite, updateInvite } from "@tris-field/services/InviteService";
+import { fetchPlayer, setTeam } from "@tris-field/services/PlayerService";
+import { fetchTeam, updateTeam } from "@tris-field/services/TeamService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
 

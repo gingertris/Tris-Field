@@ -1,8 +1,7 @@
 {
   "name": "tris-field",
   "workspaces": [
-    "packages/*",
-    "services/*"
+    "packages/*"
   ],
   "version": "1.0.0",
   "description": "Tris' Field (v2)",

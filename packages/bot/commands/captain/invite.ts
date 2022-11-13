@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "discord.js";
-import { createInvite } from "../../../services/InviteService";
-import { fetchPlayer } from "../../../services/PlayerService";
-import { fetchTeam } from "../../../services/TeamService";
+import { createInvite } from "@tris-field/services/InviteService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
+import { fetchTeam } from "@tris-field/services/TeamService";
 import { ICommand } from "../commands";
 
 const Invite: ICommand ={

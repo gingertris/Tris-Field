@@ -1,6 +1,6 @@
 import { GuildMember, SlashCommandBuilder } from "discord.js";
-import { fetchPlayer, isCaptain, leaveTeam } from "../../../services/PlayerService";
-import { deleteTeam, fetchTeam } from "../../../services/TeamService";
+import { fetchPlayer, isCaptain, leaveTeam } from "@tris-field/services/PlayerService";
+import { deleteTeam, fetchTeam } from "@tris-field/services/TeamService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
 

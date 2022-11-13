@@ -1,4 +1,4 @@
-import prisma from "../db/PrismaClient";
+import prisma from "@tris-field/db/PrismaClient";
 
 export const createInvite = async (playerId:string, teamId: number) => {
     return await prisma.invite.create({

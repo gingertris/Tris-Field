@@ -1,4 +1,4 @@
-import prisma from "../db/PrismaClient";
+import prisma from "@tris-field/db/PrismaClient";
 
 export const fetchQueue = async () => {
     return await prisma.queue.findMany({

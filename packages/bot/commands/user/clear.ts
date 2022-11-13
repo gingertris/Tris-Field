@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "discord.js";
-import { updateInvite } from "../../../services/InviteService";
-import { fetchPlayer } from "../../../services/PlayerService";
+import { updateInvite } from "@tris-field/services/InviteService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
 import { ICommand } from "../commands";
 
 const Clear: ICommand = {

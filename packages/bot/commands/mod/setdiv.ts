@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
-import { fetchTeamByName, updateTeam } from "../../../services/TeamService";
+import { fetchTeamByName, updateTeam } from "@tris-field/services/TeamService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
 
