@@ -11,7 +11,7 @@ const Clear: ICommand = {
         const player = await fetchPlayer(interaction.user.id);
         if(!player) return;
         player.invites.forEach(async invite => {
-            updateInvite(invite.playerId, invite.teamId, true)
+            updateInvite(invite.id, true)
         })
         interaction.reply({content:`Invites cleared.`, ephemeral:true})
     },
