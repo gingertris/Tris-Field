@@ -1,6 +1,6 @@
 import { SlashCommandBuilder,  ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType, GuildMember } from "discord.js";
-import { fetchPlayer } from "../../../services/PlayerService";
-import { deleteTeam } from "../../../services/TeamService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
+import { deleteTeam } from "@tris-field/services/TeamService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
 
