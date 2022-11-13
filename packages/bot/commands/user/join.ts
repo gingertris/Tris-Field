@@ -38,7 +38,7 @@ const Join: ICommand = {
         invites.forEach(i =>{
             selectMenu.addOptions({
                 label: i.team.name,
-                value: `${i.team.id}`
+                value: `${i.id}`
             })
         })
 
@@ -60,22 +60,22 @@ const Join: ICommand = {
         try{
             const response = await message.awaitMessageComponent({ filter, componentType: ComponentType.StringSelect, time: 60000});
         
-            const teamId = parseInt(response.values[0]);
-            const invite = await fetchInvite(player.id, teamId);
+            const inviteId = parseInt(response.values[0]);
+            const invite = await fetchInvite(inviteId);
             if(!invite){
                 interaction.followUp({content:`Something went wrong. Couldn't find invite.`,ephemeral:true});
                 return
             }
-            const team = await fetchTeam(teamId);
+            const team = await fetchTeam(invite.teamId);
             if(!team) {
                 interaction.followUp({content:`Something went wrong, couldn't find team.`,ephemeral:true});
                 return;
             }
-            await setTeam(player.id, teamId);
-            await updateTeam(teamId, {
+            await setTeam(player.id, invite.teamId);
+            await updateTeam(invite.teamId, {
                 changesRemaining: team.changesRemaining - 1 
             })
-            await updateInvite(player.id, teamId, true);            
+            await updateInvite(invite.id, true);            
 
             await syncRoles(interaction.member as GuildMember);            
 

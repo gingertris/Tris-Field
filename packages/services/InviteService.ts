@@ -9,13 +9,12 @@ export const createInvite = async (playerId:string, teamId: number) => {
     })
 }
 
-export const fetchInvite = async (playerId: string, teamId: number) => {
-    return await prisma.invite.findUnique({
+export const fetchUnansweredInvite = async (playerId: string, teamId: number) => {
+    return await prisma.invite.findFirst({
         where:{
-            teamId_playerId:{
-                teamId:teamId,
-                playerId:playerId
-            }
+            teamId:teamId,
+            playerId:playerId,
+            answered:false
         },
         include:{
             player:true,
@@ -28,13 +27,27 @@ export const fetchInvite = async (playerId: string, teamId: number) => {
     })
 }
 
-export const updateInvite = async (playerId: string, teamId: number, answered: boolean) => {
+
+export const fetchInvite = async (id: number) => {
+    return await prisma.invite.findUnique({
+        where:{
+            id:id
+        },
+        include:{
+            player:true,
+            team:{
+                select:{
+                    name:true
+                }
+            }
+        }
+    })
+}
+
+export const updateInvite = async (inviteId: number, answered: boolean) => {
     return await prisma.invite.update({
         where:{
-            teamId_playerId:{
-                teamId:teamId,
-                playerId:playerId
-            }
+            id:inviteId
         },
         data:{
             answered:answered

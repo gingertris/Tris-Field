@@ -46,13 +46,12 @@ model Queue {
 }
 
 model Invite {
+  id       Int     @id @default(autoincrement())
   team     Team    @relation(fields: [teamId], references: [id])
   player   Player  @relation(fields: [playerId], references: [id])
   answered Boolean @default(false)
   teamId   Int
   playerId String
-
-  @@id([teamId, playerId])
 }
 
 model Match {

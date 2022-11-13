@@ -72,5 +72,10 @@ export default async (member:GuildMember) => {
                         break
                 }
         }
+    } else{
+        member.roles.remove(roles.EU.closed);
+        member.roles.remove(roles.EU.open);
+        member.roles.remove(roles.NA.closed);
+        member.roles.remove(roles.NA.open);
     }
 } 
