@@ -10,5 +10,6 @@
     "@tris-field/db": "file:../db"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "private":true
 }

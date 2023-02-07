@@ -18,7 +18,7 @@
                                 {i+1}
                             </td>
                             <td>
-                                {team.name}
+                                <a href="/teams/{team.id}">{team.name}</a>
                             </td>
                             <td>
                                 {team.rating}

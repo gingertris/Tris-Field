@@ -20,5 +20,6 @@
     "@types/elo-rank": "^1.0.1",
     "@types/node-schedule": "^2.1.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "private": true
 }
