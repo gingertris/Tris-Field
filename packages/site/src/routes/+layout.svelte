@@ -7,19 +7,45 @@
 <nav class="navbar">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
-      		<img src="/logo.png" />
+      		<img src="/logo.png" alt="Tris' field logo"/>
     	</a>
+		<a class="navbar-item" href="/">
+      		<span>Tris' Field</span>
+    	</a>
+		
+	</div>
+
+	<div class="navbar-menu">
+		<div class="navbar-start">
+			<div class="navbar-item has-dropdown is-hoverable">
+				<a class='navbar-link'>EU</a>
+				<div class='navbar-dropdown'>
+					<a class="navbar-item" href="/eu/open">Open Division</a>
+					<a class="navbar-item" href="/eu/closed">Closed Division</a>
+				</div>
+			</div>
+			<div class="navbar-item has-dropdown is-hoverable">
+				<a class='navbar-link'>NA</a>
+				<div class='navbar-dropdown'>
+					<a class="navbar-item" href="/na/open">Open Division</a>
+					<a class="navbar-item" href="/na/closed">Closed Division</a>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<div class="navbar-end">
 		{#if $page.data.session}
-			<span class="navbar-item">
+			<div class="navbar-item">
 				Signed in as&#160
 				<strong>{$page.data.session.user.name}</strong>
-			</span>
-			<a class="button is-light navbar-item" on:click={() => signOut()} href='#'>Sign out</a>
+			</div>
+			<div class="navbar-item">
+				<a class="button is-primary" on:click={() => signOut()} href='#'>Sign out</a>
+			</div>
+			
 		{:else}
-			<a class="button is-light navbar-item" on:click={()=>signIn('discord')} href='#'>
+			<a class="button is-primary navbar-item" on:click={()=>signIn('discord')} href='#'>
 				Log in with Discord
 			</a>
 		{/if}
