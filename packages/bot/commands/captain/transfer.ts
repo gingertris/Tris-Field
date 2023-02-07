@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "discord.js";
-import { fetchPlayer } from "@tris-field//services/PlayerService";
-import { updateTeam } from "@tris-field//services/TeamService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
+import { updateTeam } from "@tris-field/services/TeamService";
 import { ICommand } from "../commands";
 
 const Transfer: ICommand = {
