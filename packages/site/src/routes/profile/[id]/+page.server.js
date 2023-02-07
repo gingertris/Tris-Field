@@ -7,7 +7,7 @@ export async function load({ params }) {
     const id = params.id;
 
     const player = await fetchPlayer(id);
-    if(!player) throw error(404, `Player with id ${id} not found`);
+    if(!player) throw error(404, {message:`Player with id ${id} not found`, id:id});
 
     return {
         player
