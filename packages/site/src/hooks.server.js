@@ -5,5 +5,14 @@ import { DISCORD_ID, DISCORD_SECRET } from "$env/static/private"
 export const handle = SvelteKitAuth({
   providers: [
     Discord({ clientId: DISCORD_ID, clientSecret: DISCORD_SECRET }),
-  ]
+  ],
+
+  callbacks: {
+      async session({session, token}){
+        session.user.id = token.sub
+        console.log(session)
+        return session
+      }
+  },
+
 });

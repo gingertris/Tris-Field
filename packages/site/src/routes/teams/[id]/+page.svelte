@@ -13,7 +13,7 @@
     <ul>
         {#each data.team.players as player}
             <li>
-                {player.name}
+                <a href="/profile/{player.id}">{player.name}</a>
             </li>
         {/each}
     </ul>
