@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run dev --workspaces --if-present"
+    "dev": "npm run dev --workspaces --if-present",
+    "build":"npm run build --workspaces",
+    "generate":"npm run generate --workspace=@tris-field/db"
   },
   "repository": {
     "type": "git",
