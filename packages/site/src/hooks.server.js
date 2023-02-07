@@ -10,7 +10,6 @@ export const handle = SvelteKitAuth({
   callbacks: {
       async session({session, token}){
         session.user.id = token.sub
-        console.log(session)
         return session
       }
   },
