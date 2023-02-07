@@ -26,6 +26,7 @@
 	"type": "module",
 	"dependencies": {
 		"@auth/core": "^0.3.0",
-		"@auth/sveltekit": "^0.2.1"
+		"@auth/sveltekit": "^0.2.1",
+		"@tris-field/services": "file:../services"
 	}
 }
