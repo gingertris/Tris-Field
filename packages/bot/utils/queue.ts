@@ -1,7 +1,7 @@
 import { ButtonInteraction, ChannelType, Client } from "discord.js";
-import { fetchPlayer } from "../../services/PlayerService";
-import { clearQueue, isQueued, joinQueue, leaveQueue } from "../../services/QueueService";
-import { fetchTeam } from "../../services/TeamService";
+import { fetchPlayer } from "@tris-field/services/PlayerService";
+import { clearQueue, isQueued, joinQueue, leaveQueue } from "@tris-field/services/QueueService";
+import { fetchTeam } from "@tris-field/services/TeamService";
 
 export const handleJoinQueue = async (interaction: ButtonInteraction) => {
 

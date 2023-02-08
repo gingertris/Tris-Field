@@ -1,5 +1,5 @@
 import { GuildMember } from "discord.js"
-import { fetchPlayer } from "../../services/PlayerService"
+import { fetchPlayer } from "@tris-field/services/PlayerService"
 
 
 export default async (member:GuildMember) => {

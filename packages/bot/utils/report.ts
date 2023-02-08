@@ -1,7 +1,7 @@
 import { Client, EmbedBuilder } from 'discord.js';
 import EloRank from 'elo-rank';
-import { fetchMatch, updateMatch } from '../../services/MatchService';
-import { updateTeam } from '../../services/TeamService';
+import { fetchMatch, updateMatch } from '@tris-field/services/MatchService';
+import { updateTeam } from '@tris-field/services/TeamService';
 
 type winnerType = 1 | 2
 

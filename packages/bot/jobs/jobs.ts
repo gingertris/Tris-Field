@@ -1,6 +1,6 @@
 import { ChannelType, Client } from "discord.js";
 import { RecurrenceRule, scheduleJob } from "node-schedule";
-import { clearQueue } from "../../services/QueueService";
+import { clearQueue } from "@tris-field/services/QueueService";
 import { closeQueue, openQueue } from "../utils/queue";
 import { createMatches, promoteAndRelegate } from "../utils/scheduled";
 //set 

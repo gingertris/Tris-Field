@@ -1,9 +1,9 @@
 import { Client, EmbedBuilder } from "discord.js";
-import { createMatch } from "../../services/MatchService";
-import { clearQueue, fetchQueue } from "../../services/QueueService";
-import { fetchTeam, fetchTeams, updateTeam } from "../../services/TeamService";
+import { createMatch } from "@tris-field/services/MatchService";
+import { clearQueue, fetchQueue } from "@tris-field/services/QueueService";
+import { fetchTeam, fetchTeams, updateTeam } from "@tris-field/services/TeamService";
 import {randomBytes} from 'crypto'
-import syncRoles from "../utils/syncRoles";
+import syncRoles from "./syncRoles";
 
 
 
@@ -90,7 +90,7 @@ export const promoteAndRelegate = async (client: Client) => {
 export const createMatches = async (client: Client, powerHour: boolean, region:"EU"|"NA") => {
 
     const allQueue = await fetchQueue();
-    let queues = [];
+    const queues = [];
     //divide queues
     for(const division in ["OPEN", "CLOSED"]) {
         queues.push(allQueue.filter(q => {
