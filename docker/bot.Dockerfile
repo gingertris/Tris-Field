@@ -12,7 +12,9 @@ COPY ./packages/bot ./packages/bot
 
 RUN npm install
 
-RUN npx tsc
+RUN npm run generate
+
+RUN npm run build
 
 FROM base
 
@@ -20,7 +22,9 @@ WORKDIR /app
 
 COPY --from=builder /app/build .
 
-COPY --from=builder /app/package/bot/package*.json .
+COPY --from=builder /app/build/db ./packages/db
+
+COPY --from=builder /app/packages/bot/package*.json ./packages/bot/
 
 WORKDIR /app/bot
 
