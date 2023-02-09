@@ -34,23 +34,6 @@
 		</div>
 	</div>
 	
-	<div class="navbar-end">
-		{#if $page.data.session}
-			<div class="navbar-item">
-				<a href="/profile/{$page.data.session.user.id}">Signed in as
-				<strong>{$page.data.session.user.name}</strong>
-				</a>
-			</div>
-			<div class="navbar-item">
-				<a class="button is-primary" on:click={() => signOut()}>Sign out</a>
-			</div>
-			
-		{:else}
-			<a class="button is-primary navbar-item" on:click={()=>signIn('discord')}>
-				Log in with Discord
-			</a>
-		{/if}
-	</div>
 </nav>
 
 <slot />
