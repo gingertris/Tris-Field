@@ -17,7 +17,7 @@ const Undo: ICommand = {
     async execute(interaction){
         const matchId = interaction.options.getInteger('id')
         if(!matchId) return;
-        let match = await fetchMatch(matchId);
+        const match = await fetchMatch(matchId);
 
         if(!match){
             interaction.reply({content:`Couldn't find match.`, ephemeral:true});

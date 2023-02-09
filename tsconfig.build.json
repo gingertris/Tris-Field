@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+   
+    "target": "ES2022",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "CommonJS",                                /* Specify what module code is generated. */
+    "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+    "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strictPropertyInitialization": false,             /* Check for class properties that are declared but not set in the constructor. */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}
