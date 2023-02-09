@@ -2,7 +2,7 @@
   "name": "@tris-field/bot",
   "version": "1.0.0",
   "description": "Discord Bot Client",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon app.ts",
