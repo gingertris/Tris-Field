@@ -1,6 +1,7 @@
 <script>
     import { signIn, signOut } from '@auth/sveltekit/client';
     import { page } from '$app/stores';
+	export let data;
 </script>
 
 
@@ -10,7 +11,7 @@
       		<img src="/logo.png" alt="Tris' field logo"/>
     	</a>
 		<a class="navbar-item" href="/">
-      		<span>Tris' Field</span>
+      		<span>{data.title}</span>
     	</a>
 		
 	</div>
