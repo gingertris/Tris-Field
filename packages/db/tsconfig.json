@@ -2,7 +2,7 @@
   "extends":"../../tsconfig.build.json",
   "compilerOptions": {
       "outDir": "build",
-       "composite": true
+      "composite": true
   }
  
 }
