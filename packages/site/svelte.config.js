@@ -13,10 +13,7 @@ const config = {
 				prependData: '@use "src/variables.scss" as *;'
 			}
 		})
-	],
-	ssr: {
-		external: ['@prisma/client'],
-	},
+	]
 };
 
 export default config;
