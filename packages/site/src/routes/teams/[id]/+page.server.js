@@ -1,20 +1,17 @@
 import { error } from '@sveltejs/kit';
-import { fetchPlayer } from '@tris-field/services/PlayerService';
-import { fetchTeam } from '@tris-field/services/TeamService';
+import { BASE_API_URL } from "$env/static/private";
 
 export async function load({ params }) {
     
     let id = params.id;
-    let idInt = parseInt(id);
+    const response = await fetch(`${BASE_API_URL}/teams/${id}`)
 
-    let team = await fetchTeam(idInt);
-    if(!team) throw error(404, `Team with id ${idInt} not found`);
+    if(!response.ok) throw error(response.status, (await response.json()).message);
 
-    const captain_name = (await fetchPlayer(team.captainId)).name;
+    const team = await response.json();
 
     return {
-        team,
-        captain_name
+        team
     }
 
 }

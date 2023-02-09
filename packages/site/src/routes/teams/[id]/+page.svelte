@@ -6,14 +6,11 @@
  
     <h1>{data.team.name}</h1>
 
-    <h2>Captain</h2>
-    <p>{data.captain_name}</p>
-
     <h2 class="subtitle">Members</h2>
     <ul>
         {#each data.team.players as player}
             <li>
-                <a href="/profile/{player.id}">{player.name}</a>
+                <a href="/profile/{player.id}">{player.name} <b>{player.id == data.team.captainId ? "(C)" : ""}</b></a>
             </li>
         {/each}
     </ul>

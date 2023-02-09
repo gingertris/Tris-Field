@@ -1,13 +1,18 @@
 import { error } from '@sveltejs/kit';
-import { fetchPlayer } from '@tris-field/services/PlayerService';
+import { BASE_API_URL } from "$env/static/private";
 
 
 export async function load({ params }) {
 
     const id = params.id;
 
-    const player = await fetchPlayer(id);
-    if(!player) throw error(404, {message:`Player with id ${id} not found`, id:id});
+    const response = await fetch(`${BASE_API_URL}/players/${id}`)
+
+
+    if(!response.ok) throw error(response.status,  (await response.json()).message);
+
+
+    const player = await response.json();
 
     return {
         player
