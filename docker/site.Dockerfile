@@ -1,4 +1,4 @@
-FROM node:17-alpine AS base
+FROM node AS base
 
 FROM base as builder
 
