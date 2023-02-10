@@ -15,13 +15,13 @@ jobs:
       matrix:
         include:
           - dockerfile: ./docker/api.Dockerfile
-            image: gchr.io/${{ github.repository }}:api
+            image: gchr.io/${{ github.repository }}-api
           - dockerfile: ./docker/bot.Dockerfile
-            image: gchr.io/${{ github.repository }}:bot
+            image: gchr.io/${{ github.repository }}-bot
           - dockerfile: ./docker/migrate.Dockerfile
-            image: gchr.io/${{ github.repository }}:migrate
+            image: gchr.io/${{ github.repository }}-migrate
           - dockerfile: ./docker/site.Dockerfile
-            image: gchr.io/${{ github.repository }}:site
+            image: gchr.io/${{ github.repository }}-site
 
 
     steps:
