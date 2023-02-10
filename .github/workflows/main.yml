@@ -22,9 +22,7 @@ jobs:
             image: gchr.io/${{ github.actor }}/${{ github.repository }}-migrate
           - dockerfile: ./docker/site.Dockerfile
             image: gchr.io/${{ github.actor }}/${{ github.repository }}-site
-      permissions:
-        contents: read
-        packages: write
+
 
     steps:
       - name: Check out the repo
