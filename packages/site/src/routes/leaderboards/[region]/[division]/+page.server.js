@@ -11,7 +11,7 @@ export async function load({ params }) {
     if(!response.ok) throw error(response.status,  (await response.json()).message)
 
     let teams = await response.json();
-    teams = teams.filter(team => team.division == division && team.region == region && team.gamesPlayed > 0).sort((a,b) => {return b.rating - a.rating});
+    teams = teams.sort((a,b) => {return b.rating - a.rating});
 
     return {
         title:`${region} - ${division} Division`,
