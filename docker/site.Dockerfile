@@ -10,8 +10,7 @@ COPY ./packages/site ./packages/site
 
 RUN npm install
 
-
-RUN npm run build-ci
+RUN npm run build
 
 FROM base
 
