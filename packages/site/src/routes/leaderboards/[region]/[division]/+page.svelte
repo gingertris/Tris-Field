@@ -2,6 +2,11 @@
   export let data;
 </script>
 
+<svelte:head>
+    <title>Tris' Field - {data.title}</title>
+</svelte:head>
+
+
 <h2 class="subtitle is-3">{data.title}</h2>
 
 <table class="table is-fullwidth is-hoverable is-striped">

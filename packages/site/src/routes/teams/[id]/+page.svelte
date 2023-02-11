@@ -2,6 +2,10 @@
     export let data;
 </script>
 
+<svelte:head>
+    <title>Tris' Field - {data.team.name}</title>
+</svelte:head>
+
 <div class=content>
  
     <h1>{data.team.name}</h1>
