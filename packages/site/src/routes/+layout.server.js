@@ -1,9 +1,9 @@
-import { TITLE } from "$env/static/private";
+import { SITE_TITLE } from "$env/static/private";
 
 export async function load() {
     
     return {
-        title: TITLE
+        title: SITE_TITLE
     }
 
 }
