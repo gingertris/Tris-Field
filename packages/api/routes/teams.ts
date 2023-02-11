@@ -7,7 +7,9 @@ router.get('/:id', async (req, res) => {
     const team = await fetchTeam(id);
 
     if(!team) {
-        res.sendStatus(404);
+        res.status(404).send({
+            message: `Team with id ${id} not found`
+        });
         return;
     }
 

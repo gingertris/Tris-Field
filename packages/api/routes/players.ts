@@ -8,7 +8,9 @@ router.get('/:id', async (req,res) => {
     const player = await fetchPlayer(id);
 
     if(!player){
-        res.sendStatus(404);
+        res.status(404).send({
+            message: `Player with id ${id} not found`
+        });
         return;
     }
 
@@ -17,7 +19,9 @@ router.get('/:id', async (req,res) => {
 });
 
 router.get('/', (req, res) => {
-    res.sendStatus(404);
+    res.status(404).send({
+            message: `Route doesn't exist`
+        });
 })
 
 export default router;
