@@ -11,7 +11,7 @@ COPY ./packages/site ./packages/site
 RUN npm install
 
 
-RUN npm run build
+RUN npm run build-ci
 
 FROM base
 
