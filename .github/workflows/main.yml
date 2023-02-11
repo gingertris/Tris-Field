@@ -60,4 +60,4 @@ jobs:
         run: |
           eval $(ssh-agent -s)
           echo '${{ secrets.SSH_PRIVATE_KEY }}' | tr -d '\r' | ssh-add -
-          ssh -o StrictHostKeyChecking=no '${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}' 'docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}; cd ~/field-v2/main; docker compose pull; docker compose up -d'
+          ssh -o StrictHostKeyChecking=no '${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}' 'docker login ${{ env.REGISTRY }} --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }}; cd ~/field-v2/main; docker compose pull; docker compose up -d; cd ~/field-v2/bot; docker compose pull; docker compose up -d;'
