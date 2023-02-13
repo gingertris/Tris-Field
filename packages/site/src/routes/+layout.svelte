@@ -1,6 +1,4 @@
 <script>
-    import { signIn, signOut } from '@auth/sveltekit/client';
-    import { page } from '$app/stores';
 	export let data;
 </script>
 
@@ -8,15 +6,18 @@
 <nav class="navbar">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
-      		<img src="/logo.png" alt="Tris' field logo"/>
-    	</a>
-		<a class="navbar-item" href="/">
-      		<span>{data.title}</span>
-    	</a>
-		
+	
+			<img src="/logo.png" alt="Tris' field logo"/>
+
+			<span class="navbar-item" href="#">
+				{data.title}
+			</span>
+		</a>
+
+
 	</div>
 
-	<div class="navbar-menu">
+	<div class="navbar-menu is-active">
 		<div class="navbar-start">
 			<div class="navbar-item has-dropdown is-hoverable">
 				<a class='navbar-link'>EU</a>

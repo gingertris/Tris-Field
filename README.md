@@ -59,85 +59,77 @@ If there is an odd number of people in the queue at the top of the hour, the las
 
 # Commands
 
-`/register <username> EU|NA`
+## Important Commands
+- `/register <username> EU|NA`
 
-Register to use this service. Username must be unique.
+  Register to use this service. Username must be unique.
 
-`/create “Team Name”`
+- `/create “Team Name”`
 
-Creates a team, sets person who ran command as Captain
+    Creates a team, sets person who ran command as Captain
 
-`/invite @User`
+- `/invite @User`
 	
-Invites @User to your team. You can only invite players of the same region as you to your team.
+    Invites @User to your team. You can only invite players of the same region as you to your team.
 
-You need to be the Captain of your team to use this command.
+    *You need to be the Captain of your team to use this command.*
 
-`/join`
+- `/join`
 	
-Lists invites. Button for each invite, press button to join team.
+    Lists invites. Button for each invite, press button to join team.
 
-Command will fail if you are already in a team.
+- `/clear`
 
-`/clear`
+    Clears all invites.
 
-Clears all invites.
+- `/leave`
 
-`/leave`
+    Leave team.
 
-Leave team.
+    *You cannot leave a team you are captain of. `/transfer` ownership of the team to someone else before leaving.*
 
-You cannot leave a team you are captain of. `/transfer` ownership of the team to someone else before leaving.
 
-`/transfer @User`
-
-Transfers ownership of team to @User. If not Captain of a team, this command fails.
-
-You need to be the Captain of your team to use this command.
-
-`/delete`
-
-Delete team.
-
-You must be the captain of a team to delete it.
-
-`/rename “New Team Name”`
+- `/report <match id> <Win|Loss>`
 	
-Renames team to a new team name. 
+    Report match score. 
+
+## Team Management *(Captain only Commands)*
+- `/transfer @User`
+
+    Transfers ownership of team to @User. If not Captain of a team, this command fails.
+
+- `/delete`
+
+    Delete team.
+
+- `/rename “New Team Name”`
+	
+    Renames team to a new team name. 
    
-You need to be the Captain of your team to use this command.
+- `/kick @User`
 
-`/kick @User`
-
-Kicks @User from team. 
+    Kicks @User from team. 
     
-You need to be the Captain of your team to use this command.
+## Other Commands
 
-`/report`
-	
-Report match score. 
+- `/info @User`
 
-*How? Gives user a message with a Win button and a Loss button. 
-When one team reports, bot can message the captain of the other team asking to confirm the score, with its own interaction.*
+    Gives you player information. If `@User` is omitted, it gives you your own information. 
 
-`/info @User`
+- `/team "Team name"`
 
-Gives you player information. If `@User` is omitted, it gives you your own information. Currently only region and team.
+    Gives you information on a team. If `"Team name"` is omitted, it gives you information on your own team. 
 
-`/team "Team name"`
+- `/pings on|off`
 
-Gives you information on a team. If `"Team name"` is omitted, it gives you information on your own team. Captain, team members, region, division and rating.
-
-`/pings on|off`
-
-Toggle pings for queue.
+    Toggle pings for queue.
 
 ## Mod Commands
 
-`/setdiv "Team name" <division>`
+- `/setdiv "Team name" <division>`
 
-Change the division of a team.
+    Change the division of a team.
 
-`/undo <match id>`
+- `/undo <match id>`
 
-Undo a match.
+    Undo a match.
