@@ -91,8 +91,9 @@ export const createMatches = async (client: Client, powerHour: boolean, region:"
 
     const allQueue = await fetchQueue();
     const queues = [];
+
     //divide queues
-    for(const division in ["OPEN", "CLOSED"]) {
+    for(const division of ["OPEN", "CLOSED"]) {
         queues.push(allQueue.filter(q => {
             return (q.region) == (region) && (q.division) == (division)
         }))

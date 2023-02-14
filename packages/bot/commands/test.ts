@@ -1,4 +1,5 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder, REST, Routes } from "discord.js";
+import { createMatches } from "../utils/scheduled";
 import { ICommand } from "./commands";
 
 const Test: ICommand = {
@@ -8,7 +9,8 @@ const Test: ICommand = {
     async execute(interaction: ChatInputCommandInteraction){
 
         interaction.reply("testing")
-        
+        await createMatches(interaction.client, false, "EU")
+
     },
     config:{
         registered:false,
