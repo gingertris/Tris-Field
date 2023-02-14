@@ -15,9 +15,10 @@ import Pings from "./user/pings"
 import Player from "./user/player"
 import Register from "./user/register"
 import Report from "./user/report"
+import Sync from "./user/sync"
 import Team from "./user/team"
 
-const Commands = [Delete, Invite, Kick, Rename, Transfer, SetDiv, Undo, Clear, Create, Join, Leave, Pings, Player, Register, Report, Team]
+const Commands = [Delete, Invite, Kick, Rename, Transfer, SetDiv, Undo, Clear, Create, Join, Leave, Pings, Player, Register, Report, Sync, Team]
 
 export interface ICommand {
     data: any, //slash command builder magic that i dont fully get
