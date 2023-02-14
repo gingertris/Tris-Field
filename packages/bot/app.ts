@@ -1,11 +1,12 @@
-import {Client, GatewayIntentBits, Events, Collection, REST, Routes} from 'discord.js';
+import {Client, GatewayIntentBits, Events, Collection, REST, Routes, GuildMember} from 'discord.js';
 import * as dotenv from 'dotenv';
 import { fetchPlayer, isCaptain } from '../services/PlayerService';
 import Commands, { ICommand } from './commands/commands'
+import onLeave from './utils/onLeave';
 import { handleJoinQueue, handleLeaveQueue } from './utils/queue';
 dotenv.config();
 
-const client = new Client({intents:[GatewayIntentBits.Guilds]})
+const client = new Client({intents:[GatewayIntentBits.Guilds, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMembers]})
 const loadedCommands: Collection<string, ICommand> = new Collection();
 
 for (const command of Commands) {
@@ -32,7 +33,6 @@ client.on(Events.InteractionCreate, async interaction => {
 			return
 		}
 	}
-
 
 	if (!interaction.isChatInputCommand()) return;
 
@@ -65,5 +65,11 @@ client.on(Events.InteractionCreate, async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+//on leave
+client.on(Events.GuildMemberRemove, async member => {
+	console.log(`${member.user.username} left`);
+	await onLeave(member as GuildMember);
+})
 
 client.login(process.env.BOT_TOKEN);

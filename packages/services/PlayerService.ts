@@ -34,6 +34,14 @@ export const createPlayer = async (id: string, username: string, region: "EU" | 
     })
 }
 
+export const deletePlayer = async (id: string) => {
+    await prisma.player.delete({
+        where:{
+            id:id
+        }
+    })
+}
+
 export const setTeam = async (playerId: string, teamId: number | null) => {
     return await prisma.player.update({
         where:{
