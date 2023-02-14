@@ -50,6 +50,7 @@ const Delete: ICommand =  {
             }
 
         }catch(err){
+            console.log(err);
             interaction.followUp({content:`Command timed out.`,ephemeral:true});
         }
 

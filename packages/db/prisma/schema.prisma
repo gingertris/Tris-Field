@@ -47,20 +47,20 @@ model Queue {
 
 model Invite {
   id       Int     @id @default(autoincrement())
-  team     Team    @relation(fields: [teamId], references: [id])
-  player   Player  @relation(fields: [playerId], references: [id])
+  team     Team    @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  player   Player  @relation(fields: [playerId], references: [id], onDelete: Cascade)
   answered Boolean @default(false)
   teamId   Int
   playerId String
 }
 
 model Match {
-  id    Int  @id @default(autoincrement())
-  team1 Team @relation("team1", fields: [team1Id], references: [id])
-  team2 Team @relation("team2", fields: [team2Id], references: [id])
+  id    Int   @id @default(autoincrement())
+  team1 Team? @relation("team1", fields: [team1Id], references: [id], onDelete: SetNull)
+  team2 Team? @relation("team2", fields: [team2Id], references: [id], onDelete: SetNull)
 
-  team1Id Int
-  team2Id Int
+  team1Id Int?
+  team2Id Int?
 
   winnerId  Int?
   powerHour Boolean
