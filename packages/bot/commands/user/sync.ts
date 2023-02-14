@@ -10,7 +10,7 @@ const Sync: ICommand = {
 
         await syncRoles(interaction.member as GuildMember);
 
-        interaction.reply("Roles synced.");
+        interaction.reply({content:`Roles synced.`, ephemeral:true});
         
     },
     config:{
