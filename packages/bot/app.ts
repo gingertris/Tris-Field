@@ -2,6 +2,7 @@ import {Client, GatewayIntentBits, Events, Collection, REST, Routes, GuildMember
 import * as dotenv from 'dotenv';
 import { fetchPlayer, isCaptain } from '../services/PlayerService';
 import Commands, { ICommand } from './commands/commands'
+import { loadJobs } from './jobs/jobs';
 import onLeave from './utils/onLeave';
 import { handleJoinQueue, handleLeaveQueue } from './utils/queue';
 dotenv.config();
@@ -17,6 +18,7 @@ for (const command of Commands) {
 client.once(Events.ClientReady, async () => {
     if(!client.user) return; 
 	console.log(`Logged in as ${client.user.tag}!`);
+	loadJobs(client);
 });
 
 //command handler
