@@ -36,9 +36,13 @@ export const fetchTeamByName = async (teamName: string) => {
 }
 
 export const createTeam = async (name:string, captainId:string, region: "EU"|"NA") => {
+
+    const nameCaps = name.toUpperCase();
+
     return await prisma.team.create({
         data:{
             name:name,
+            nameCaps: nameCaps,
             captainId:captainId,
             region:region,
             division:"OPEN"

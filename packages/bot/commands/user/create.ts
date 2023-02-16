@@ -3,7 +3,7 @@ import { fetchPlayer, setTeam } from "@tris-field/services/PlayerService";
 import { createTeam } from "@tris-field/services/TeamService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
-
+import Filter from 'bad-words';
 
 const Create: ICommand = {
     data: new SlashCommandBuilder()
@@ -30,6 +30,12 @@ const Create: ICommand = {
 
         const teamname = interaction.options.getString("name");
         if(!teamname) return;
+
+        const filter = new Filter;
+        if(filter.isProfane(teamname)){
+            interaction.reply({content:"Chosen team name contains profanity. Please try a different team name.", ephemeral:true});
+            return
+        }
 
         let team;
         try{

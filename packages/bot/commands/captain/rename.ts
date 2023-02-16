@@ -2,6 +2,7 @@ import { SlashCommandBuilder } from "discord.js";
 import { fetchPlayer } from "@tris-field/services/PlayerService";
 import { updateTeam } from "@tris-field/services/TeamService";
 import { ICommand } from "../commands";
+import Filter from 'bad-words';
 
 const Rename: ICommand = {
     data: new SlashCommandBuilder()
@@ -23,6 +24,13 @@ const Rename: ICommand = {
 
         const teamname = interaction.options.getString("name");
         if(!teamname) return;
+
+        const filter = new Filter;
+        if(filter.isProfane(teamname)){
+            interaction.reply({content:"Chosen team name contains profanity. Please try a different team name.", ephemeral:true});
+            return
+        }
+
         try{
             await updateTeam(captain.team.id, {
                 name:teamname

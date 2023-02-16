@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction, GuildMember, SlashCommandBuilder } from "d
 import { createPlayer, fetchPlayer } from "@tris-field/services/PlayerService";
 import syncRoles from "../../utils/syncRoles";
 import { ICommand } from "../commands";
+import Filter from "bad-words";
 
 const Register: ICommand = {
     data: new SlashCommandBuilder()
@@ -47,6 +48,11 @@ const Register: ICommand = {
 
         if(region != "EU" && region != "NA") {
             interaction.reply({content:"Region must be either `EU` or `NA`.", ephemeral:true})
+            return
+        }
+        const filter = new Filter;
+        if(filter.isProfane(username)){
+            interaction.reply({content:"Chosen username contains profanity. Please try a different username.", ephemeral:true});
             return
         }
 

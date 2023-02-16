@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@tris-field/services": "file:../services",
+    "bad-words": "^3.0.4",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "elo-rank": "^1.0.4",
@@ -20,7 +21,8 @@
   "devDependencies": {
     "@types/elo-rank": "^1.0.1",
     "@types/node-schedule": "^2.1.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "@types/bad-words": "^3.0.1"
   },
   "private": true
 }

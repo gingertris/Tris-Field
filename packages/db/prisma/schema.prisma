@@ -22,6 +22,7 @@ model Player {
 model Team {
   id               Int      @id @default(autoincrement())
   name             String   @unique
+  nameCaps         String   @unique
   captainId        String
   division         Division
   region           Region

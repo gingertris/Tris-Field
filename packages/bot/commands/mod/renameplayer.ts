@@ -10,7 +10,7 @@ const RenamePlayer: ICommand = {
         .addUserOption(option => 
             option
                 .setName('target')
-                .setDescription("Player to rename.")
+                .setDescription("Player to rename")
                 .setRequired(true)
         )
         .addStringOption(option => 
