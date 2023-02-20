@@ -38,7 +38,8 @@ const RenameTeam: ICommand = {
         }
 
         await updateTeam(team.id, {
-            name:newName
+            name:newName,
+            nameCaps:newName.toUpperCase()
         });
 
         interaction.reply({content:"Team updated.", ephemeral:true});

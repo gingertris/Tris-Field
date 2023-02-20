@@ -33,7 +33,8 @@ const Rename: ICommand = {
 
         try{
             await updateTeam(captain.team.id, {
-                name:teamname
+                name:teamname,
+                nameCaps:teamname.toUpperCase()
             })
         } catch (err:any){
             interaction.reply({content:`A team called ${teamname} already exists. Please choose a different name.`, ephemeral:true});
