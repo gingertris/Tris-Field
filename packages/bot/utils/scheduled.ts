@@ -39,24 +39,28 @@ export const promoteAndRelegate = async (client: Client) => {
         for(let i=0; i<(openTeams.length < teamsToSwap ? openTeams.length : teamsToSwap); i++){ //prevent index out of range if not many teams, lol
 
             const team = openTeams[i];
+            
+            if(team){
+                await updateTeam(team.id, {
+                    division:"CLOSED",
+                    changesRemaining:2,
+                    rating:1000
+                    
+                })
+        
+                team.players.forEach(async player => {
+                    try{
+                        const guildId = process.env.GUILD_ID;
+                        if(!guildId) throw new Error("GUILD_ID not found in env")
+                        await syncRoles(await (await client.guilds.fetch(guildId)).members.fetch(player.id));
+                        (await client.users.fetch(player.id)).send("Congratulations, your team has been promoted to Closed Division!")
+                    } catch(err){
+                        console.log(err)
+                    }
+                });
+            }
 
-            await updateTeam(team.id, {
-                division:"CLOSED",
-                changesRemaining:2,
-                rating:1000
-                
-            })
-    
-            team.players.forEach(async player => {
-                try{
-                    const guildId = process.env.GUILD_ID;
-                    if(!guildId) throw new Error("GUILD_ID not found in env")
-                    await syncRoles(await (await client.guilds.fetch(guildId)).members.fetch(player.id));
-                    (await client.users.fetch(player.id)).send("Congratulations, your team has been promoted to Closed Division!")
-                } catch(err){
-                    console.log(err)
-                }
-            });
+            
         }
 
 
@@ -64,19 +68,23 @@ export const promoteAndRelegate = async (client: Client) => {
 
         for(let i=0; i<teamsToSwap; i++){
             const team = closedTeams[i];
-            await updateTeam(team.id, {
-                division:"OPEN",
-                changesRemaining:2,
-                rating:1000
-            })
-            team.players.forEach(async player => {
-                try{
-                    (await client.users.fetch(player.id)).send("You have been demoted to Open Division.")
-                }catch(err:unknown){
-                    console.log(err)                    
-                }
-                
-            });
+
+            if(team){
+                await updateTeam(team.id, {
+                    division:"OPEN",
+                    changesRemaining:2,
+                    rating:1000
+                })
+                team.players.forEach(async player => {
+                    try{
+                        (await client.users.fetch(player.id)).send("You have been demoted to Open Division.")
+                    }catch(err:unknown){
+                        console.log(err)                    
+                    }
+                    
+                });
+            }
+
         }
         
     }
