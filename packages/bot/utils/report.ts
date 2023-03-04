@@ -31,12 +31,14 @@ export const reportMatch = async (matchId:number, winnerVal:winnerType) => {
 
     await updateTeam(winner.id, {
         rating:newWinnerRating,
-        gamesPlayed: winner.gamesPlayed + 1
+        gamesPlayed: winner.gamesPlayed + 1,
+        changesRemaining: winner.changesRemaining < 0 ? 1 : winner.changesRemaining //if first match after team creation, set to 1 change remaining
     })
 
     await updateTeam(loser.id, {
         rating:newLoserRating,
-        gamesPlayed: loser.gamesPlayed + 1
+        gamesPlayed: loser.gamesPlayed + 1,
+        changesRemaining: loser.changesRemaining  > 0 ? 1 : loser.changesRemaining //if first match after team creation, set to 1 change remaining
     })
 
     return await updateMatch(matchId, {

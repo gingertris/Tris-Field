@@ -71,6 +71,19 @@ const Join: ICommand = {
                 interaction.followUp({content:`Something went wrong, couldn't find team.`,ephemeral:true});
                 return;
             }
+
+            if(team.changesRemaining == 0){
+                interaction.followUp({content:`You cannot join this team. This team has used up all of its roster changes for this month.`,ephemeral:true});
+                await updateInvite(invite.id, true);  
+                return;
+            }
+
+            if(team.players.length >= 3){
+                interaction.followUp({content:`You cannot join this team. This team already has 3 players.`,ephemeral:true});
+                await updateInvite(invite.id, true);  
+                return;
+            }
+
             await setTeam(player.id, invite.teamId);
             await updateTeam(invite.teamId, {
                 changesRemaining: team.changesRemaining - 1 

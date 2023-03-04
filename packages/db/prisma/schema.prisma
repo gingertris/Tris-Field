@@ -31,7 +31,7 @@ model Team {
   players          Player[]
   invites          Invite[]
   queue            Queue?
-  changesRemaining Int      @default(2)
+  changesRemaining Int      @default(-1)
   team1Matches     Match[]  @relation(name: "team1")
   team2Matches     Match[]  @relation(name: "team2")
 }

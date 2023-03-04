@@ -43,7 +43,7 @@ export const promoteAndRelegate = async (client: Client) => {
             if(team){
                 await updateTeam(team.id, {
                     division:"CLOSED",
-                    changesRemaining:2,
+                    changesRemaining:1,
                     rating:1000
                     
                 })
@@ -72,7 +72,7 @@ export const promoteAndRelegate = async (client: Client) => {
             if(team){
                 await updateTeam(team.id, {
                     division:"OPEN",
-                    changesRemaining:2,
+                    changesRemaining:1,
                     rating:1000
                 })
                 team.players.forEach(async player => {

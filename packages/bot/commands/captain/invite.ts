@@ -25,6 +25,11 @@ const Invite: ICommand ={
     
         const team = await fetchTeam(captain.team.id)
 
+        if(team.changesRemaining == 0){
+            interaction.reply({content:"You cannot invite anyone else to your team. You have used up this month's roster change.", ephemeral:true});
+            return;
+        }
+
         const playerUser = interaction.options.getUser("target");
         if(!playerUser) return;
 
@@ -41,7 +46,7 @@ const Invite: ICommand ={
         }
 
         await createInvite(player.id, captain.team.id);
-        interaction.reply({content:`Invite sent. ${playerUser.username} can join ${captain.team.name} by using the \`/join\` command.`, ephemeral:true});
+        interaction.reply({content:`Invite sent. ${playerUser.username} can join ${captain.team.name} by using the \`/join\` command. `, ephemeral:true});
         return
         
     },
