@@ -1,7 +1,7 @@
-# Tris' Field
+# The Pitch
 My attempt at a recreation of Psyonix and Rival Esports' *The Field*.
 
-# How will Tris’ Field work?
+# How will The Pitch work?
 
 There will be 2 divisions: **Open Division** and **Closed Division**.
 
@@ -9,7 +9,7 @@ Closed Division capped at 16 teams (but may increase with more users). Open Divi
 
 *For Season 1, all teams who have qualified for an RLCS 22-23 Closed Qualifier are invited to join Closed Division.*
 
-*For Tris' Field - University League, all teams who have qualified for UR 22-23 Spring are invited to join Closed Division.*
+*For The Pitch - University League, all teams who have qualified for UR 22-23 Spring are invited to join Closed Division.*
 
 At the start of each month, all teams reset to 1000 points. Players can gain/lose rating throughout the month. 
 
@@ -19,7 +19,7 @@ You will need to play 10 games in a month to be eligible for prizing and promoti
 
 # Leaderboards
 
-Leaderboards for Tris' Field can be found at `https://trisfield.com/<region>/<division>`.
+Leaderboards for The Pitch can be found at `https://trisfield.com/<region>/<division>`.
 
 - `<region>` must be either `EU` or `NA`.
 - `<division>` must be either `open` or `closed`.
