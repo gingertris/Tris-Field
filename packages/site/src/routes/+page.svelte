@@ -1,5 +1,5 @@
 <svelte:head>
-<title>Tris' Field</title>
+<title>The Pitch</title>
 </svelte:head>
 
-<h1>Welcome to Tris' Field.</h1>
+<h1>Welcome to The Pitch.</h1>

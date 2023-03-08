@@ -7,7 +7,7 @@
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
 	
-			<img src="/logo.png" alt="Tris' field logo"/>
+			<img src="/logo.png" alt="The Pitch logo"/>
 
 			<span class="navbar-item" href="#">
 				{data.title}
