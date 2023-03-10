@@ -78,8 +78,8 @@ const Join: ICommand = {
                 return;
             }
 
-            if(team.players.length >= 3){
-                interaction.followUp({content:`You cannot join this team. This team already has 3 players.`,ephemeral:true});
+            if(team.players.length >= 4){
+                interaction.followUp({content:`You cannot join this team. This team already has 4 players.`,ephemeral:true});
                 await updateInvite(invite.id, true);  
                 return;
             }
