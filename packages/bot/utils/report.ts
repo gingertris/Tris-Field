@@ -1,5 +1,5 @@
 import { Client, EmbedBuilder } from 'discord.js';
-import EloRank from 'elo-rank';
+
 import { fetchMatch, updateMatch } from '@tris-field/services/MatchService';
 import { updateTeam } from '@tris-field/services/TeamService';
 
@@ -50,11 +50,26 @@ export const reportMatch = async (matchId:number, winnerVal:winnerType) => {
 }
 
 const calcuateRating = (winner:number, loser:number) => {
-    const elo = new EloRank(32);
-    const expectedScoreWinner = elo.getExpected(winner, loser);
-    const expectedScoreLoser = elo.getExpected(loser, winner);
 
-    return {winner:elo.updateRating(expectedScoreWinner, 1, winner), loser: elo.updateRating(expectedScoreLoser, 0, loser)}
+    const K = 32;
+
+    const {E_a, E_b} = calculateExpected(winner, loser);
+    const R_a = winner + K * (1 - E_a);
+    const R_b = loser + K * (0 - E_b)
+
+    return {winner:R_a, loser: R_b}
+
+}
+
+const calculateExpected = (R_a:number, R_b:number) => {
+    const Q_a = 10 ^ (R_a/400);
+    const Q_b = 10 ^ (R_b/400);
+
+    const E_a = Q_a / (Q_a + Q_b);
+    const E_b = Q_b / (Q_a + Q_b);
+
+    return {E_a, E_b}
+
 
 }
 

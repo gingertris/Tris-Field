@@ -8,8 +8,7 @@ const Test: ICommand = {
         .setDescription("Test command"),
     async execute(interaction: ChatInputCommandInteraction){
 
-        interaction.reply("testing")
-        await createMatches(interaction.client, false, "EU")
+        interaction.reply("testing");
 
     },
     config:{
