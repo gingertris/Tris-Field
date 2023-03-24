@@ -4,6 +4,7 @@ import { GuildMember } from "discord.js";
 
 export default async function (member: GuildMember) {
     const player = await fetchPlayer(member.id);
+    if(!player) return;
     if(player.team){
         const team = await fetchTeam(player.team.id);
         if(team.captainId == member.id){
