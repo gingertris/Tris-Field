@@ -1,5 +1,5 @@
 # The Pitch
-My attempt at a recreation of Psyonix and Rival Esports' *The Field*.
+https://github.com/gingertris/tris-field
 
 # How will The Pitch work?
 
@@ -19,12 +19,12 @@ You will need to play 10 games in a month to be eligible for prizing and promoti
 
 # Leaderboards
 
-Leaderboards for The Pitch can be found at `https://trisfield.com/<region>/<division>`.
+Leaderboards for The Pitch can be found at `https://pitch.tris.zone/<region>/<division>`.
 
 - `<region>` must be either `EU` or `NA`.
 - `<division>` must be either `open` or `closed`.
 
-Leaderboards for Tris' Field - University League can be found at `https://uni.trisfield.com`.
+Leaderboards for Tris' Field - University League can be found at `https://uni-pitch.tris.zone`.
 
 # Opening times
 
